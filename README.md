@@ -2,7 +2,7 @@
 ## Description
 A project made in java which helps you create your resume without writing code. Fill the details in the application and get your resume ready.
 ## Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. This project has been done in IntelliJ. It uses JPA/EclipseLink, JavaEE(Servlet,Jsp)  in the application. Java Database Connectivity(JDBC) is used for connecting the PostgreSql database.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. This project has been done in IntelliJ. It uses JPA/EclipseLink, JavaEE(Servlet,Jsp)  in the application. Eclipse configuration in persistence.xml is used for connecting the PostgreSql database.
 First, you can download the application as follows:
 
 1) Clone the repository: https://github.com/suleymanmehdiyev/ResumeBuildProject-JDBC.git
