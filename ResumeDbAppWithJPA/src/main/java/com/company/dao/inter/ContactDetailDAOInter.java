@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface ContactDetailDAOInter {
     List<ContactDetail> getAllContactDetail();
-    ContactDetail getContactDetailById(User userId);
+    List<ContactDetail> getContactDetailById(User userId);
     ContactDetail addContactDetail(ContactDetail contactDetail);
     ContactDetail updateContactDetail(ContactDetail contactDetail);
-    void deleteContactDetail(Integer id);
+    void deleteContactDetailByUserId(User userId);
 }

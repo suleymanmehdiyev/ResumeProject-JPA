@@ -1,4 +1,4 @@
-package com.company.impl;
+package com.company.dao.impl;
 
 import com.company.dao.inter.EmploymentHistoryDAOInter;
 import com.company.model.EmploymentHistory;
@@ -57,12 +57,13 @@ public class EmploymentHistoryDAOImpl extends AbstractDAO implements EmploymentH
     }
 
     @Override
-    public void deleteEmploymentHistory(Integer id) {
+    public void deleteEmploymentHistoryByUserId(User userId) {
         EntityManager em = em();
 
         em.getTransaction().begin();
-        EmploymentHistory u = em.find(EmploymentHistory.class,id);
-        em.remove(u);
+        Query query = em.createQuery("delete from EmploymentHistory emp where emp.userId=:userId");
+        query.setParameter("userId",userId);
+        query.executeUpdate();
         em.getTransaction().commit();
         em.close();
     }

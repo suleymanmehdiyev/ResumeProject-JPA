@@ -12,7 +12,7 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -43,7 +43,6 @@ public class User implements Serializable {
     @Column(name = "patronymic")
     String patronymic;
     @Column(name = "birthdate")
-    @Temporal(TemporalType.DATE)
     Date birthdate;
     @Column(name = "gender")
     String gender;
@@ -96,6 +95,7 @@ public class User implements Serializable {
     }
 
     public User(Integer id, String uname, String surname, String patronymic, java.sql.Date birthdate, String gender, String maritalStatus, String citizenship, String military, String about, String email, String password) {
+//        this(id,uname,surname,patronymic,birthdate,gender,maritalStatus,citizenship,military,about);
         this.id = id;
         this.uname = uname;
         this.surname = surname;
@@ -110,14 +110,13 @@ public class User implements Serializable {
         this.password = password;
 
     }
-
-    public User(Integer id, String uname, String surname, String patronymic, java.sql.Date birthdate, String gender, String maritalStatus, String citizenship, String military, String about, String email, String password, List<ContactDetail> cd, List<UserSkill> skills, List<EmploymentHistory> employmentHistory, List<Education> education) {
-        this(id, uname, surname, patronymic, birthdate, gender, maritalStatus, citizenship, military, about, email, password);
-        this.skills = skills;
-        this.contactDetail = cd;
-        this.employmentHistory = employmentHistory;
-        this.education = education;
-    }
+//    public User(Integer id, String uname, String surname, String patronymic, java.sql.Date birthdate, String gender, String maritalStatus, String citizenship, String military, String about, String email, String password, List<ContactDetail> cd, List<UserSkill> skills, List<EmploymentHistory> employmentHistory, List<Education> education) {
+////        this(id, uname, surname, patronymic, birthdate, gender, maritalStatus, citizenship, military, about,email,password);
+//        this.skills = skills;
+//        this.contactDetail = cd;
+//        this.employmentHistory = employmentHistory;
+//        this.education = education;
+//    }
 
     @Override
     public String toString() {

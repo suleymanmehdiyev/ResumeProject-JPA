@@ -12,7 +12,7 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * @author User
@@ -37,10 +37,8 @@ public class Education implements Serializable {
     @Column(name = "speciality")
     String speciality;
     @Column(name = "begin_date")
-    @Temporal(TemporalType.DATE)
     Date beginDate;
     @Column(name = "end_date")
-    @Temporal(TemporalType.DATE)
     Date endDate;
     @JoinColumn(name = "university_id", referencedColumnName = "id")
     @ManyToOne(optional = false)

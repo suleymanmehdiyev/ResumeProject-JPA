@@ -1,18 +1,21 @@
 package com.company.main;
 
-import com.company.dao.inter.*;
+import com.company.dao.inter.ContactDetailDAOInter;
+import com.company.dao.inter.EmploymentHistoryDAOInter;
+import com.company.dao.inter.UserDAOInter;
+import com.company.dao.inter.UserSkillDAOInter;
 import com.company.model.*;
 
 public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        UserDAOInter userDAOInter = Context.instanceUserDAO();
+//        UserDAOInter userDAOInter = Context.instanceUserDAO();
 //        User u = new User(3,"Nerminn","Gulieva","nermin@gmail.com","12345678");
 //        System.out.println(userDAOInter.getAllNameAndSurname(null,"Gulieva",null));
 
-        UserSkillDAOInter userSkill = Context.instanceUserSkillDAO();
-        UserSkill us = new UserSkill(null,new Skill(1),new User(1));
+//        UserSkillDAOInter userSkill = Context.instanceUserSkillDAO();
+//        UserSkill us = new UserSkill(null,new Skill(1),new User(1));
 //        System.out.println(userSkill.addUserSkill(us));
 //        userSkill.deleteUserSkill(new User(1));
 
@@ -33,10 +36,10 @@ public class Main {
 //          Education edu = new Education(1,"Master","Optotexnika",new Date(2000-11-07),new Date(2000-11-07),new University(1),new User(1));
 //          educationDAOInter.deleteEducation(new User(2));
 
-//        ContactDetailDAOInter contactDetailDAOInter = Context.instanceContactDetailDAO();
-//        ContactDetail cd = new ContactDetail(1,"0554962967","Baku",new City(1),new User(1));
-////        contactDetailDAOInter.updateContactDetail(cd);
-//       contactDetailDAOInter.deleteContactDetail(new User(1));
+        ContactDetailDAOInter contactDetailDAOInter = Context.instanceContactDetailDAO();
+//        ContactDetail cd = new ContactDetail(null,null,null,new City(1),new User(1));
+//        contactDetailDAOInter.addContactDetail(cd);
+        contactDetailDAOInter.deleteContactDetailByUserId(new User(1));
 
 //        CityDAOInter daoInter = Context.instanceCityDAO();
 //        System.out.println(daoInter.getById(1));

@@ -46,4 +46,9 @@ public class University implements Serializable {
         this.id = id;
         this.uniName = uniName;
     }
+
+    @Override
+    public String toString() {
+        return  uniName;
+    }
 }

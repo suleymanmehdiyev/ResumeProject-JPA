@@ -12,7 +12,7 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * @author User
@@ -33,12 +33,10 @@ public class EmploymentHistory implements Serializable {
     @Column(name = "id")
     Integer id;
     @Column(name = "begin_date")
-    @Temporal(TemporalType.DATE)
     Date beginDate;
     @Column(name = "company_name")
     String companyName;
     @Column(name = "end_date")
-    @Temporal(TemporalType.DATE)
     Date endDate;
     @Column(name = "job_description")
     String jobDesc;

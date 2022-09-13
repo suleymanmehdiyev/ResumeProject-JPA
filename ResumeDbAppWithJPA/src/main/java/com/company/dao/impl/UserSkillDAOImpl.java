@@ -1,4 +1,4 @@
-package com.company.impl;
+package com.company.dao.impl;
 
 import com.company.dao.inter.UserSkillDAOInter;
 import com.company.model.User;
@@ -54,12 +54,12 @@ public class UserSkillDAOImpl extends AbstractDAO implements UserSkillDAOInter {
     }
 
     @Override
-    public void deleteUserSkill(Integer id) {
+    public void deleteUserSkillByUserId(User userId) {
         EntityManager em = em();
-
         em.getTransaction().begin();
-        UserSkill u = em.find(UserSkill.class,id);
-        em.remove(u);
+        Query query = em.createQuery("delete from UserSkill us where us.user=:userId");
+        query.setParameter("userId",userId);
+        query.executeUpdate();
         em.getTransaction().commit();
         em.close();
     }

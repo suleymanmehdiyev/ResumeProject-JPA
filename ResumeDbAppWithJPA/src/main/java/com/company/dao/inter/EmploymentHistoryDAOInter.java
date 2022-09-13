@@ -10,5 +10,5 @@ public interface EmploymentHistoryDAOInter {
     EmploymentHistory getEmploymentHistoryById(Integer id);
     EmploymentHistory addEmploymentHistory(EmploymentHistory employmentHistory);
     EmploymentHistory updateEmploymentHistory(EmploymentHistory employmentHistory);
-    void deleteEmploymentHistory(Integer id);
+    void deleteEmploymentHistoryByUserId(User userId);
 }

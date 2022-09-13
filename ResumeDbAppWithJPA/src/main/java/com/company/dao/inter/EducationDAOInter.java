@@ -6,9 +6,9 @@ import com.company.model.User;
 import java.util.List;
 
 public interface EducationDAOInter {
-    List<Education> getAllEducation(User userId);
+    List<Education> getAllEducationByUserId(User userId);
     Education getEducationById(Integer id);
     Education addEducation(Education education);
     Education updateEducation(Education education);
-    void deleteEducation(User userId);
+    void deleteEducationByUserId(User userId);
 }

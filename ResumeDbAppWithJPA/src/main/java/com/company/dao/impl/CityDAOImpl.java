@@ -1,4 +1,4 @@
-package com.company.impl;
+package com.company.dao.impl;
 
 import com.company.dao.inter.CityDAOInter;
 import com.company.model.City;

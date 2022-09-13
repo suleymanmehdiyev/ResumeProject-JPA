@@ -1,4 +1,4 @@
-package com.company.impl;
+package com.company.dao.impl;
 
 import com.company.dao.inter.UniversityDAOInter;
 import com.company.model.University;

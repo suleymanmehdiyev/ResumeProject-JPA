@@ -1,4 +1,4 @@
-package com.company.impl;
+package com.company.dao.impl;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.company.dao.inter.UserDAOInter;
@@ -79,9 +79,22 @@ private BCrypt.Hasher bCrypt = BCrypt.withDefaults();
     @Override
     public User updateUser(User u) {
         EntityManager em = em();
-
         em.getTransaction().begin();
-        em.merge(u);
+        String sql = "update User u set u.uname=:uname,u.surname=:surname,u.patronymic=:patronymic," +
+                "u.birthdate=:birthdate,u.gender=:gender,u.maritalStatus=:maritalStatus," +
+                "u.citizenship=:citizenship,u.military=:military,u.about=:about where u.id=:id";
+        Query query = em.createQuery(sql);
+        query.setParameter("uname",u.getUname());
+        query.setParameter("surname",u.getSurname());
+        query.setParameter("patronymic",u.getPatronymic());
+        query.setParameter("birthdate",u.getBirthdate());
+        query.setParameter("gender",u.getGender());
+        query.setParameter("maritalStatus",u.getMaritalStatus());
+        query.setParameter("citizenship",u.getCitizenship());
+        query.setParameter("military",u.getMilitary());
+        query.setParameter("about",u.getAbout());
+        query.setParameter("id",u.getId());
+        query.executeUpdate();
         em.getTransaction().commit();
         em.close();
         return u;

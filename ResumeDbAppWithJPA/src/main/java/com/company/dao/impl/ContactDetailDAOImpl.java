@@ -1,4 +1,4 @@
-package com.company.impl;
+package com.company.dao.impl;
 
 import com.company.dao.inter.ContactDetailDAOInter;
 import com.company.model.*;
@@ -21,12 +21,12 @@ public class ContactDetailDAOImpl extends AbstractDAO implements ContactDetailDA
     }
 
     @Override
-    public ContactDetail getContactDetailById(User userId) {
+    public List<ContactDetail> getContactDetailById(User userId) {
         EntityManager em = em();
         em.getTransaction().begin();
         Query query = em.createQuery("select cd from ContactDetail cd where cd.userId=:userId");
         query.setParameter("userId",userId);
-        ContactDetail cd = (ContactDetail) query.getSingleResult();
+        List<ContactDetail> cd = query.getResultList();
         em.getTransaction().commit();
         em.close();
         return cd;
@@ -55,12 +55,12 @@ public class ContactDetailDAOImpl extends AbstractDAO implements ContactDetailDA
     }
 
     @Override
-    public void deleteContactDetail(Integer id) {
+    public void deleteContactDetailByUserId(User userId) {
         EntityManager em = em();
-
         em.getTransaction().begin();
-        ContactDetail u = em.find(ContactDetail.class,id);
-        em.remove(u);
+        Query query = em.createQuery("delete from ContactDetail cd where cd.userId=:userId");
+        query.setParameter("userId",userId);
+        query.executeUpdate();
         em.getTransaction().commit();
         em.close();
     }

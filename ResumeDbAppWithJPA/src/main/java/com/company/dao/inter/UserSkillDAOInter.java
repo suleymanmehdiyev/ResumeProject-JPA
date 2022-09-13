@@ -10,5 +10,5 @@ public interface UserSkillDAOInter {
     UserSkill getById(Integer id);
     UserSkill addUserSkill(UserSkill userSkill);
     UserSkill updateUserSkill(UserSkill userSkill);
-    void deleteUserSkill(Integer id);
+    void deleteUserSkillByUserId(User userId);
 }

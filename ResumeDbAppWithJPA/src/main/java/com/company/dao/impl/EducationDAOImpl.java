@@ -1,4 +1,4 @@
-package com.company.impl;
+package com.company.dao.impl;
 
 import com.company.dao.inter.EducationDAOInter;
 import com.company.model.*;
@@ -10,7 +10,7 @@ import java.util.List;
 public class EducationDAOImpl extends AbstractDAO implements EducationDAOInter {
 
     @Override
-    public List<Education> getAllEducation(User userId) {
+    public List<Education> getAllEducationByUserId(User userId) {
         EntityManager em = em();
         em.getTransaction().begin();
         Query query = em.createQuery("select edu from Education edu where edu.userId=:userId");
@@ -25,7 +25,7 @@ public class EducationDAOImpl extends AbstractDAO implements EducationDAOInter {
     public Education getEducationById(Integer id) {
         EntityManager em = em();
         em.getTransaction().begin();
-        Query query = em.createQuery("select edu from Education edu where edu.id=:id");
+        Query query = em.createQuery("select edu from Education edu where edu.userId=:id");
         query.setParameter("id",id);
         Education edu = (Education) query.getSingleResult();
         em.getTransaction().commit();
@@ -55,13 +55,14 @@ public class EducationDAOImpl extends AbstractDAO implements EducationDAOInter {
         return education;
     }
 
-    @Override
-    public void deleteEducation(User userId) {
-        EntityManager em = em();
 
+    @Override
+    public void deleteEducationByUserId(User userId) {
+        EntityManager em = em();
         em.getTransaction().begin();
-        Education u = em.find(Education.class,userId.getId());
-        em.remove(u);
+        Query query = em.createQuery("delete from Education edu where edu.userId=:userId");
+        query.setParameter("userId",userId);
+        query.executeUpdate();
         em.getTransaction().commit();
         em.close();
     }
